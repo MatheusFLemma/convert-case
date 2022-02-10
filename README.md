@@ -5,15 +5,17 @@
 </p>
 
 <h1 align="center">
-  <img src="readme/banner.png" alt="Convert Case project photo">
+  <img src="public/banner.png" alt="Foto do projeto Convert Case">
 </h1>
 
 <h3 align="center">Convert Case | Conversor de palavras</h3>
 
 <!--ts-->
-   * [Sobre](#sobre-o-projeto)
-   * [Como executar](#como-executar-o-projeto)
-   * [Tecnologias](#tecnologias)
+
+- [Sobre o projeto](#sobre-o-projeto)
+- [Como executar o projeto](#como-executar-o-projeto)
+  - [Pré-requisitos](#pré-requisitos)
+- [Tecnologias](#tecnologias)
 <!--te-->
 
 <a href="https://convert-case-alpha.vercel.app/" rel="external" target="_blank"><h2 align="center">Acessar versão final</h2></a>
@@ -41,7 +43,7 @@ Além disso, um bom editor para trabalhar com código como [VSCode](https://code
 
   # Instalar as dependências
   $ yarn install
-  
+
   # Iniciar o projeto
   $ yarn dev
 
