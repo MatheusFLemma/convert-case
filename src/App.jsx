@@ -2,6 +2,8 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/global";
 import theme from "./styles/theme";
 
+import { saveAs } from "file-saver";
+
 import Title from "./components/Title";
 import { useState } from "react";
 
@@ -15,8 +17,11 @@ function App() {
     setInputText(inputContent);
   }
 
-  function sentence(e) {
-    console.log(e);
+  // Transform first letter to UpperCase
+  function sentence() {
+    const response = inputText.charAt(0).toUpperCase() + inputText.slice(1);
+
+    setInputText(response);
   }
 
   // Transform text to lower case
@@ -31,12 +36,17 @@ function App() {
     setInputText(response);
   }
 
-  function upperFormat(e) {
-    console.log(e);
-  }
+  function alternateFormat() {
+    const response = inputText
+      .split("")
+      .map((letter) => {
+        return letter.toLowerCase() === letter
+          ? letter.toUpperCase()
+          : letter.toLowerCase();
+      })
+      .join("");
 
-  function alternateFormat(e) {
-    console.log(e);
+    setInputText(response);
   }
 
   // Transform text to Title Case
@@ -52,12 +62,9 @@ function App() {
     setInputText(finalResponse);
   }
 
-  function inverseCase(e) {
-    console.log(e);
-  }
-
   function download(e) {
-    console.log(e);
+    const blob = new Blob([inputText], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, `${inputText}-saved.txt`);
   }
 
   // Copy text to clipboard
@@ -85,10 +92,8 @@ function App() {
           <button onClick={sentence}>Formato frase</button>
           <button onClick={lowerCase}>minúsculas</button>
           <button onClick={upperCase}>MAIÚSCULAS</button>
-          <button onClick={upperFormat}>Formato Maiúsculas</button>
           <button onClick={alternateFormat}>fOrMaTo aLtErNaDo</button>
           <button onClick={titleCase}>Formato Título</button>
-          <button onClick={inverseCase}>FoRmAtO InVeRtIdO</button>
           <button onClick={download}>Baixar</button>
           <button onClick={clipboard}>Copiar para o Clipboard</button>
           <button onClick={clear}>Limpar</button>
