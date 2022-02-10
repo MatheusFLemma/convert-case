@@ -36,6 +36,7 @@ function App() {
     setInputText(response);
   }
 
+  // Transform letter to Alternate format
   function alternateFormat() {
     const response = inputText
       .split("")
@@ -62,7 +63,8 @@ function App() {
     setInputText(finalResponse);
   }
 
-  function download(e) {
+  // Download the text
+  function download() {
     const blob = new Blob([inputText], { type: "text/plain;charset=utf-8" });
     saveAs(blob, `${inputText}-saved.txt`);
   }
